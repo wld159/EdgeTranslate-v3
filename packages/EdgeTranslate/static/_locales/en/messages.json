@@ -243,6 +243,10 @@
         "message": "Cancel text selection after translation",
         "description": "Cancel text selection automatically after translation"
     },
+    "BuiltInPDFViewer": {
+        "message": "Use built-in PDF viewer",
+        "description": "Enable built-in PDF viewer for PDF files."
+    },
     "GooglePageTranslate": {
         "message": "Google Page Trans.",
         "description": "Translate current page with Google translate api."

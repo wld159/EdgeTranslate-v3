@@ -239,6 +239,10 @@
         "message": "Отменить выделение текста после перевода",
         "description": "Отменить выделение текста автоматически после перевода"
     },
+    "BuiltInPDFViewer": {
+        "message": "Использовать встроенный PDF‑просмотрщик",
+        "description": "Включить встроенный PDF‑просмотрщик для PDF файлов."
+    },
     "GooglePageTranslate": {
         "message": "Перевод страниц Google",
         "description": "Перевод текущей страницы с помощью Google Translate API."

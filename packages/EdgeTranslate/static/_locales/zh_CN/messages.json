@@ -239,6 +239,10 @@
         "message": "翻译后取消文本选择",
         "description": "翻译后自动取消文本选择"
     },
+    "BuiltInPDFViewer": {
+        "message": "使用内置 PDF 查看器",
+        "description": "启用内置 PDF 查看器以打开 PDF 文件。"
+    },
     "GooglePageTranslate": {
         "message": "Google 网页翻译",
         "description": "使用 Google 翻译当前页面。"

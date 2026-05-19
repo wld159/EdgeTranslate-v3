@@ -239,6 +239,10 @@
         "message": "번역 후 선택 해제",
         "description": "번역 후 선택 해제"
     },
+    "BuiltInPDFViewer": {
+        "message": "내장 PDF 뷰어 사용",
+        "description": "PDF 파일에 대해 내장 PDF 뷰어를 사용합니다."
+    },
     "GooglePageTranslate": {
         "message": "Google 페이지 번역",
         "description": "Google로 현재 페이지 번역"

@@ -239,6 +239,10 @@
         "message": "翻譯後取消文本選擇",
         "description": "翻譯後自動取消文本選擇"
     },
+    "BuiltInPDFViewer": {
+        "message": "使用內建 PDF 檢視器",
+        "description": "為 PDF 檔案啟用內建 PDF 檢視器。"
+    },
     "GooglePageTranslate": {
         "message": "Google 網頁翻譯",
         "description": "使用 Google 翻譯目前頁面。"

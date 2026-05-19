@@ -16,11 +16,43 @@ import { promiseTabs } from "common/scripts/promise.js";
 import Channel from "common/scripts/channel.js";
 // map language abbreviation from browser languages to translation languages
 import { BROWSER_LANGUAGES_MAP } from "common/scripts/languages.js";
-import { DEFAULT_SETTINGS, setDefaultSettings } from "common/scripts/settings.js";
+import { DEFAULT_SETTINGS, getOrSetDefaultSettings } from "common/scripts/settings.js";
+
+let pdfDetection = null;
+
+async function initializePdfDetection() {
+    const result = await getOrSetDefaultSettings("OtherSettings", DEFAULT_SETTINGS);
+    const enabled = result.OtherSettings?.BuiltInPDFViewer !== false;
+    if (enabled) {
+        startPdfDetection();
+    }
+}
+
+function startPdfDetection() {
+    if (pdfDetection) return;
+    pdfDetection = setupPdfDetection({ logInfo, logWarn });
+}
+
+function stopPdfDetection() {
+    if (!pdfDetection) return;
+    pdfDetection.dispose();
+    pdfDetection = null;
+}
 
 initializeBackgroundErrorHandling({ logWarn });
 setupServiceWorkerMocks();
-setupPdfDetection({ logInfo, logWarn });
+initializePdfDetection();
+
+chrome.storage.onChanged.addListener((changes, areaName) => {
+    if (areaName !== "sync" || !changes.OtherSettings) return;
+    const newValue = changes.OtherSettings.newValue;
+    const enabled = newValue?.BuiltInPDFViewer !== false;
+    if (enabled) {
+        startPdfDetection();
+    } else {
+        stopPdfDetection();
+    }
+});
 
 /**
  * Chrome Runtime 오류 처리
